@@ -1,0 +1,96 @@
+<mvc:View controllerName="sbtuiapp.controller.MainView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    displayBlock="true">
+
+   <Page title="{i18n>title}">
+    <content>
+        <VBox class="sapUiMediumMargin" width="100%">
+            <Title text="{i18n>welcome}" level="H2"/>
+            <Text text="Manage and track your expenses easily." />
+            <HBox justifyContent="SpaceBetween" width="100%" class="sapUiMediumMarginTop">
+                <!-- LEFT: Action Tiles -->
+            <FlexBox wrap="Wrap" width="70%">
+                        <GenericTile header="Add Expense" press="onAddExpense" class="tileGap">
+                            <TileContent>
+                                <ImageContent src="sap-icon://add"/>
+                            </TileContent>
+                        </GenericTile>
+                        <GenericTile header="Expenses" press="onMyExpenses" class="tileGap">
+                            <TileContent>
+                                <ImageContent src="sap-icon://money-bills"/>
+                            </TileContent>
+                        </GenericTile>
+                        <GenericTile header="Reports" press="onReports" class="tileGap">
+                            <TileContent>
+                                <ImageContent src="sap-icon://bar-chart"/>
+                            </TileContent>
+                        </GenericTile>
+                        <GenericTile header="Approvals" press="onApprovals" class="tileGap">
+                            <TileContent>
+                                <ImageContent src="sap-icon://approvals"/>
+                            </TileContent>
+                        </GenericTile>
+                        <GenericTile header="Add Income" press="onAddIncome" class="tileGap">
+                            <TileContent>
+                                <ImageContent src="sap-icon://add-equipment"/>
+                            </TileContent>
+                        </GenericTile>
+                        <GenericTile header="Client Billing" press="onClientBilling" class="tileGap">
+                            <TileContent>
+                                <ImageContent src="sap-icon://customer"/>
+                            </TileContent>
+                        </GenericTile>
+            </FlexBox>
+                <!-- RIGHT: KPI Panel -->
+            <VBox width="25%" class="kpiBox">
+                    <Title text="Finance Summary" level="H3"/>
+
+                    <!-- Expense -->
+                    <VBox class="kpiItem">
+                        <Text text="Expense (This Month)" />
+                        <ObjectNumber number="{kpi>/expenseMonthly}" unit="₹" emphasized="true"/>
+                    </VBox>
+
+                    <VBox class="kpiItem">
+                        <Text text="Expense (This Year)" />
+                        <ObjectNumber number="{kpi>/expenseYearly}" unit="₹" emphasized="true"/>
+                    </VBox>
+
+                    <VBox class="kpiItem">
+                        <Text text="Expense (Overall)" />
+                        <ObjectNumber number="{kpi>/expenseTotal}" unit="₹" emphasized="true"/>
+                    </VBox>
+                   
+                    <!-- Income -->
+                    <VBox class="kpiItem">
+                        <Text text="Income (This Month)" />
+                        <ObjectNumber number="{kpi>/incomeMonthly}" unit="₹" emphasized="true"/>
+                    </VBox>
+
+                    <VBox class="kpiItem">
+                        <Text text="Income (This Year)" />
+                        <ObjectNumber number="{kpi>/incomeYearly}" unit="₹" emphasized="true"/>
+                    </VBox>
+
+                    <VBox class="kpiItem">
+                        <Text text="Income (Overall)" />
+                        <ObjectNumber number="{kpi>/incomeTotal}" unit="₹" emphasized="true"/>
+                    </VBox>
+                    
+                    <!-- Profit / Loss -->
+                    <VBox class="kpiItem">
+                        <Text text="Profit / Loss (This Month)" />
+                       <ObjectStatus
+                        text="{kpi>/profitMonthly}"
+                        unit="₹"
+                        state="{= ${kpi>/profitMonthly} >= 0 ? 'Success' : 'Error' }"/>
+                    </VBox>
+
+                </VBox>
+
+            </HBox>
+        </VBox>
+    </content>
+</Page>
+</mvc:View>

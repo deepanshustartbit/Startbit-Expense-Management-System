@@ -1,0 +1,147 @@
+{
+    "_version": "1.60.0",
+    "sap.app": {
+        "id": "sbtuiapp",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap-ux/fiori-freestyle-writer:basic",
+            "version": "0.21.10"
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "intent1": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "webapp",
+                    "action": "display",
+                    "title": "SBT Expense Manager",
+                    "icon": "sap-icon://add"
+                }
+            }
+        },"dataSources": {
+        "mainService": {
+            "uri": "/odata/v4/expense/",
+            "type": "OData",
+            "settings": {
+            "odataVersion": "4.0"
+            }
+        }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "preload": "off",
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.136.2",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                 "sap.ui.layout": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "sbtuiapp.i18n.i18n"
+                }
+            }, "": {
+            "dataSource": "mainService",
+            "type": "sap.ui.model.odata.v4.ODataModel",
+            "settings": {
+            "synchronizationMode": "None",
+            "operationMode": "Server"
+            }
+        }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "sbtuiapp.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "RouteMainView",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetMainView"
+                    ]
+                },{
+                "name": "expenseList",
+                "pattern": "expenseList",
+                "target": "ExpenseList"
+                }
+
+            ],
+            "targets": {
+                "TargetMainView": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "MainView",
+                    "viewName": "MainView"
+                },
+                "ExpenseList": {
+                "viewName": "ExpenseList",
+                "viewType": "XML",
+                "transition": "slide"
+                }
+
+            }
+        },
+        "rootView": {
+            "viewName": "sbtuiapp.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        }
+        
+
+    },
+    "sap.cloud": {
+        "public": true,
+        "service": "basic.service"
+    }
+
+}

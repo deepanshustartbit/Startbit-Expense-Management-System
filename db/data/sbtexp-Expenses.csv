@@ -1,0 +1,6 @@
+ID,title,amount,currency,expenseDate,notes,category_ID,createdBywho_ID
+1,Office Lunch,350,INR,2026-01-05,Lunch with team,1,1
+2,Taxi to Client,500,INR,2026-01-06,Client meeting travel,2,2
+3,January Rent,12000,INR,2026-01-01,Monthly office rent,3,1
+4,Stationery Purchase,800,INR,2026-01-04,Printer Paper Rim,4,3
+5,Doctor Visit,600,INR,2026-01-03,Health checkup,5,2

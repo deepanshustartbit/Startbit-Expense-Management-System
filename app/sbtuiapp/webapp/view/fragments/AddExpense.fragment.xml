@@ -1,0 +1,39 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form">
+
+    <Dialog title="Add Expense" contentWidth="400px">
+        <content>
+            <form:SimpleForm layout="ResponsiveGridLayout">
+                <Label text="Title"/>
+                <Input value="{expense>/title}"/>
+
+                <Label text="Amount"/>
+                <Input type="Number" value="{expense>/amount}"/>
+
+                <Label text="Currency"/>
+                <Select selectedKey="{expense>/currency}">
+                    <core:Item key="INR" text="INR"/>
+                    <core:Item key="USD" text="USD"/>
+                </Select>
+
+                <Label text="Expense Date"/>
+                <DatePicker
+                value="{expense>/expenseDate}"
+                valueFormat="yyyy-MM-dd"
+                displayFormat="dd-MM-yyyy"/>
+
+                <Label text="Notes"/>
+                <TextArea rows="3" value="{expense>/notes}"/>
+
+            </form:SimpleForm>
+        </content>
+        <beginButton>
+            <Button text="Save" type="Emphasized" press=".onSaveExpense"/>
+        </beginButton>
+        <endButton>
+            <Button text="Cancel" press=".onCloseExpenseDialog"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

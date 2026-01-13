@@ -1,0 +1,48 @@
+<mvc:View
+    controllerName="sbtuiapp.controller.ExpenseList"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+
+    <Page title="Expenses">
+        <content>
+            <Table
+                id="expenseTable"
+                items="{/Expenses}"
+                inset="false"
+                growing="true"
+                growingScrollToLoad="true">
+
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Expense List"/>
+                        <ToolbarSpacer/>
+                        <SearchField width="40%" liveChange=".onSearch"/>
+                    </Toolbar>
+                </headerToolbar>
+
+                <columns>
+                    <Column><Text text="Title"/></Column>
+                    <Column hAlign="End"><Text text="Amount"/></Column>
+                    <Column><Text text="Currency"/></Column>
+                    <Column><Text text="Date"/></Column>
+                    <Column><Text text="Notes"/></Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{title}"/>
+                            <ObjectNumber number="{amount}" emphasized="true"/>
+                            <Text text="{currency}"/>
+                            <Text text="{expenseDate}"/>
+                            <Text text="{notes}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+
+            </Table>
+        </content>
+
+    </Page>
+
+</mvc:View>
