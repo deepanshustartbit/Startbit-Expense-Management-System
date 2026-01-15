@@ -1,25 +1,76 @@
-# Getting Started
+# Expense Management System
 
-Welcome to your new project.
+## 📌 Overview
+Expense Management System is a full-stack enterprise application built using **SAP CAP (Node.js)** and **SAPUI5**.  
+It helps users **track expenses and income**, analyze spending, and view **monthly, yearly, and overall financial summaries**, including **profit and loss**.
 
-It contains these folders and files, following our recommended project layout:
+---
 
-File or Folder | Purpose
----------|----------
-`app/` | content for UI frontends goes here
-`db/` | your domain models and data go here
-`srv/` | your service models and code go here
-`package.json` | project metadata and configuration
-`readme.md` | this getting started guide
+## 🚀 Features
 
+### ✅ Expense Management
+- Add expenses manually using a form
+- Upload expenses in bulk using Excel file
+- View all expenses in a list
+- Expenses stored securely in SAP HANA DB
 
-## Next Steps
+### ✅ Income Management
+- Add income details
+- Track income from different sources (e.g. client billing)
+- View total income (monthly / yearly / overall)
 
-- Open a new terminal and run `cds watch`
-- (in VS Code simply choose _**Terminal** > Run Task > cds watch_)
-- Start adding content, for example, a [db/schema.cds](db/schema.cds).
+### ✅ Financial Dashboard
+- Monthly expense total
+- Yearly expense total
+- Overall expense total
+- Monthly income total
+- Yearly income total
+- Overall income total
+- **Profit / Loss calculation**
+  - Profit shown in green
+  - Loss shown in red
 
+### ✅ Analytics
+- Automatic calculation based on expense date
+- Real-time KPI updates
+- Clean and responsive UI (mobile, tablet, desktop)
 
-## Learn More
+---
 
-Learn more at https://cap.cloud.sap/docs/get-started/.
+## 🏗️ Architecture
+
+```text
+STARTBITEXPMANAGER
+└── sbtexp
+    ├── app
+    │   └── sbtuiapp
+    │       ├── dist
+    │       ├── webapp
+    │       │   ├── controller
+    │       │   ├── view
+    │       │   │   ├── fragments
+    │       │   │   ├── App.view.xml
+    │       │   │   ├── MainView.view.xml
+    │       │   │   ├── ExpenseList.view.xml
+    │       │   │   └── ManageCatagory.view.xml
+    │       │   ├── model
+    │       │   ├── css
+    │       │   ├── i18n
+    │       │   ├── Component.js
+    │       │   ├── manifest.json
+    │       │   └── index.html
+    │       ├── package.json
+    │       └── ui5.yaml
+    │
+    ├── db
+    │   └── schema.cds
+    │
+    ├── srv
+    │   ├── ExpenseService.cds
+    │   ├── ExpensesService.js
+    │   ├── CategoryService.cds
+    │   └── admin_Service.cds
+    │
+    ├── gen
+    ├── package.json
+    └── README.md
