@@ -26,7 +26,7 @@ sap.ui.define([
                         sap.m.MessageToast.show("Current Date : " + expenseMonth);
                     }
                 });
-                //Calculation Current Year ammount
+                //Calculation Current Year Ammount
                 var yearlyAmmount = 0;
                 aExpenses.forEach(function (ma){
                     const date = new Date();
