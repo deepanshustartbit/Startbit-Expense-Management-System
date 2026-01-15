@@ -1,0 +1,23 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form">
+
+    <Dialog title="Add Catagory" contentWidth="400px">
+        <content>
+            <form:SimpleForm layout="ResponsiveGridLayout">
+                <Label text="Name"/>
+                <Input value="{catagory>/name}"/>
+
+                <Label text="Description"/>
+                <Input value="{catagory>/description}"/>
+            </form:SimpleForm>
+        </content>
+        <beginButton>
+            <Button text="Save" type="Emphasized" press=".onSaveCatagory"/>
+        </beginButton>
+        <endButton>
+            <Button text="Cancel" press=".onCloseCatagoryDialog"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

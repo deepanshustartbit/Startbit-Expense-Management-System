@@ -7,7 +7,7 @@
         <content>
             <Table
                 id="expenseTable"
-                items="{/Expenses}"
+                items="{expenseModel>/Expenses}"
                 inset="false"
                 growing="true"
                 growingScrollToLoad="true">
@@ -31,11 +31,11 @@
                 <items>
                     <ColumnListItem>
                         <cells>
-                            <Text text="{title}"/>
-                            <ObjectNumber number="{amount}" emphasized="true"/>
-                            <Text text="{currency}"/>
-                            <Text text="{expenseDate}"/>
-                            <Text text="{notes}"/>
+                            <Text text="{expenseModel>title}"/>
+                            <ObjectNumber number="{expenseModel>amount}" emphasized="true"/>
+                            <Text text="{expenseModel>currency}"/>
+                            <Text text="{expenseModel>expenseDate}"/>
+                            <Text text="{expenseModel>notes}"/>
                         </cells>
                     </ColumnListItem>
                 </items>

@@ -9,7 +9,7 @@ sap.ui.define([
             onInit: function () {
                 var that = this;  
                 var aExpenses;
-                var oModel1 = this.getOwnerComponent().getModel();
+                var oModel1 = this.getOwnerComponent().getModel("expenseModel");
                 sap.m.MessageToast.show(oModel1);
                 oModel1.bindContext("/FetchExpenseData()").requestObject()
                 .then(function (aData) {
@@ -88,13 +88,16 @@ sap.ui.define([
             },
             onReports: function () {
                 this.getOwnerComponent().getRouter().navTo("reports");
+            }, 
+            onManageCatagory: function () {
+                this.getOwnerComponent().getRouter().navTo("manageCatagory");
             },
             onApprovals: function () {
                 this.getOwnerComponent().getRouter().navTo("approvals");
             },
             onSaveExpense: function () {
                 var oData = this._oExpenseDialog.getModel("expense").getData();
-                var oModel = this.getView().getModel();
+                 var oModel = this.getOwnerComponent().getModel("expenseModel");
 
                 var oListBinding = oModel.bindList("/Expenses");
 

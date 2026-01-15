@@ -28,13 +28,20 @@
                 }
             }
         },"dataSources": {
-        "mainService": {
-            "uri": "/odata/v4/expense/",
-            "type": "OData",
-            "settings": {
-            "odataVersion": "4.0"
-            }
-        }
+         "expenseService": {
+                        "uri": "/odata/v4/expense/",
+                        "type": "OData",
+                        "settings": {
+                        "odataVersion": "4.0"
+                        }
+                    },
+                "categoryService": {
+                    "uri": "/odata/v4/catagories/",
+                    "type": "OData",
+                    "settings": {
+                    "odataVersion": "4.0"
+                    }
+                }
         }
     },
     "sap.ui": {
@@ -74,14 +81,24 @@
                 "settings": {
                     "bundleName": "sbtuiapp.i18n.i18n"
                 }
-            }, "": {
-            "dataSource": "mainService",
-            "type": "sap.ui.model.odata.v4.ODataModel",
-            "settings": {
-            "synchronizationMode": "None",
-            "operationMode": "Server"
+            },
+             "expenseModel": {
+                "dataSource": "expenseService",
+                "type": "sap.ui.model.odata.v4.ODataModel",
+                "settings": {
+                "synchronizationMode": "None",
+                "operationMode": "Server"
+                }
+            },
+
+            "categoryModel": {
+                "dataSource": "categoryService",
+                "type": "sap.ui.model.odata.v4.ODataModel",
+                "settings": {
+                "synchronizationMode": "None",
+                "operationMode": "Server"
+                }
             }
-        }
         },
         "resources": {
             "css": [
@@ -111,6 +128,10 @@
                 "name": "expenseList",
                 "pattern": "expenseList",
                 "target": "ExpenseList"
+                },{
+                "name": "manageCatagory",
+                "pattern": "manageCatagory",
+                "target": "ManageCatagory"
                 }
 
             ],
@@ -124,6 +145,11 @@
                 },
                 "ExpenseList": {
                 "viewName": "ExpenseList",
+                "viewType": "XML",
+                "transition": "slide"
+                },
+                "ManageCatagory": {
+                "viewName": "ManageCatagory",
                 "viewType": "XML",
                 "transition": "slide"
                 }

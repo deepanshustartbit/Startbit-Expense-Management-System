@@ -1,0 +1,56 @@
+<mvc:View
+    controllerName="sbtuiapp.controller.ManageCatagory"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true">
+
+    <Page
+        title="Manage Categories"
+        showNavButton="false"
+        navButtonPress="onNavBack">
+
+        <!-- Header Toolbar -->
+        <headerContent>
+            <Button
+                text="Add Category"
+                type="Emphasized"
+                icon="sap-icon://add"
+                press="onAddCategory"/>
+        </headerContent>
+
+        <!-- Category List -->
+         <content>
+            <Table
+                id="catagoryTable"
+                items="{categoryModel>/Catagories}"
+                inset="false"
+                growing="true"
+                growingScrollToLoad="true">
+
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Catagory List"/>
+                        <ToolbarSpacer/>
+                        <SearchField width="40%" liveChange=".onSearch"/>
+                    </Toolbar>
+                </headerToolbar>
+
+                <columns>
+                    <Column><Text text="Name"/></Column>
+                    <Column><Text text="Description"/></Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{categoryModel>name}"/>
+                            <Text text="{categoryModel>description}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+
+            </Table>
+        </content>
+    </Page>
+
+</mvc:View>

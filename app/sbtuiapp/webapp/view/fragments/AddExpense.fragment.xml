@@ -12,6 +12,17 @@
                 <Label text="Amount"/>
                 <Input type="Number" value="{expense>/amount}"/>
 
+                  <!-- ✅ Category Dropdown -->
+                <Label text="Category"/>
+                <Select
+                    items="{categoryModel>/Catagories}"
+                    selectedKey="{expense>/category_ID}"
+                    forceSelection="true">
+                    <core:Item
+                        key="{categoryModel>ID}"
+                        text="{categoryModel>name}"/>
+                </Select>
+                
                 <Label text="Currency"/>
                 <Select selectedKey="{expense>/currency}">
                     <core:Item key="INR" text="INR"/>

@@ -26,6 +26,11 @@
                                 <ImageContent src="sap-icon://bar-chart"/>
                             </TileContent>
                         </GenericTile>
+                        <GenericTile header="Manage Expense Catagory" press="onManageCatagory" class="tileGap">
+                            <TileContent>
+                                <ImageContent src="sap-icon://tag"/>
+                            </TileContent>
+                        </GenericTile>
                         <GenericTile header="Approvals" press="onApprovals" class="tileGap">
                             <TileContent>
                                 <ImageContent src="sap-icon://approvals"/>

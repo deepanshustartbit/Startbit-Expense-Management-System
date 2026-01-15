@@ -3,7 +3,7 @@ using { managed } from '@sap/cds/common';
 namespace sbtexp;
 
 entity Catagories : managed {
-  key ID    : Integer;
+  key ID    : UUID;
   name      : String(111) ;
   description    : String(1111);
 }
@@ -22,15 +22,10 @@ entity Expenses : managed {
 
 /** Hierarchically organized Code List for Genres */
 entity Users : managed {
-  key ID : Integer;
+  key ID : UUID;
   name   : String(100);
   email  : String(100);
   
   expenses : Association to many Expenses
                on expenses.createdBywho = $self;
-}
-
-entity vehicle : managed {
-  key Id : Integer;
-  name   : String(100);
 }
